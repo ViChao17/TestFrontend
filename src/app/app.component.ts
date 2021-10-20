@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApiClientService} from "./api/api-client.service";
 
 @Component({
@@ -9,10 +9,11 @@ import {ApiClientService} from "./api/api-client.service";
 export class AppComponent implements OnInit{
   title = 'TestFrontend';
 
-  constructor(protected api: ApiClientService) {
+  constructor(private api: ApiClientService) {
   }
 
   ngOnInit(): void {
+    console.log('ok!');
     this.api.getRoot(items => {
       console.log(items);
     });
