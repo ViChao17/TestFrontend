@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {ApiClientService} from "./api/api-client.service";
 
 @Component({
   selector: 'app-root',
@@ -9,13 +8,10 @@ import {ApiClientService} from "./api/api-client.service";
 export class AppComponent implements OnInit{
   title = 'TestFrontend';
 
-  constructor(private api: ApiClientService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    console.log('ok!');
-    this.api.getRoot(items => {
-      console.log(items);
-    });
+    console.log('app init!');
   }
 }
