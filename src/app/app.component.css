@@ -14,10 +14,20 @@
 .main {
   padding: 30px;
   flex: 1 1 auto;
+  background-color: #e0e5ef;
 }
 
 .footer {
   background-color: darkgray;
   padding: 30px;
   text-align: center;
+}
+
+.container {
+  display: grid;
+  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 500px));
+  grid-gap: 20px;
+  place-content: center;
+  margin-top: 30px;
 }
