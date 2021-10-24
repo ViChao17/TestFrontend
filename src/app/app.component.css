@@ -26,8 +26,22 @@
 .container {
   display: grid;
   padding: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 500px));
   grid-gap: 20px;
   place-content: center;
   margin-top: 30px;
+}
+
+.highcharts-container {
+  position: relative;
+  overflow: hidden;
+  width: 650px;
+  height: 400px;
+  text-align: left;
+  line-height: normal;
+  z-index: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  touch-action: manipulation;
+  outline: none;
+  font-family: Dosis, sans-serif;
 }

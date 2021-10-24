@@ -8,6 +8,8 @@ import * as Highcharts from 'highcharts';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+  data = [];
+
   Highcharts: typeof Highcharts = Highcharts;
   pieChartOptions: Highcharts.Options = {
     chart: {
@@ -102,6 +104,7 @@ export class MainComponent implements OnInit {
     },
     title: {
       verticalAlign: 'top',
+      align: 'right',
       floating: true
     },
     legend: {
@@ -113,8 +116,7 @@ export class MainComponent implements OnInit {
         data: [{
           name: 'Chrome',
           y: 61.41,
-          sliced: true,
-          selected: true
+          sliced: true
         }, {
           name: 'Internet Explorer',
           y: 11.84
@@ -144,6 +146,71 @@ export class MainComponent implements OnInit {
     ]
   };
 
+
+  lineChartOptions: Highcharts.Options = {
+    chart: {
+      events: {
+        load: function () {
+
+          // set up the updating of the chart each second
+          let series = this.series[0];
+          setInterval(function () {
+            let x = (new Date()).getTime(), // current time
+              y = Math.round(Math.random() * 100);
+            series.addPoint([x, y], true, true);
+          }, 1000);
+        }
+      }
+    },
+
+    time: {
+      useUTC: false
+    },
+
+    rangeSelector: {
+      buttons: [{
+        count: 1,
+        type: 'minute',
+        text: '1M'
+      }, {
+        count: 5,
+        type: 'minute',
+        text: '5M'
+      }, {
+        type: 'all',
+        text: 'All'
+      }],
+      inputEnabled: false,
+      selected: 0
+    },
+
+    title: {
+      text: 'Live random data'
+    },
+
+    exporting: {
+      enabled: false
+    },
+
+    series: [{
+      name: 'Random data',
+      // @ts-ignore
+      data: (function () {
+        // generate an array of random data
+        let data = [],
+          time = (new Date()).getTime(),
+          i;
+
+        for (i = -999; i <= 0; i += 1) {
+          data.push([
+            time + i * 1000,
+            Math.round(Math.random() * 100)
+          ]);
+        }
+        return data;
+      }())
+    }]
+  }
 
   constructor() { }
 
