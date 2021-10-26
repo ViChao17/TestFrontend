@@ -1,11 +1,16 @@
 <div class="wrapper">
   <header class="header">
-    Я хедер
+    <div class="header_content">
+      <a class="a-home{{on_active()}}" href="#" [routerLink]="''"><div class="icon-home"></div></a>
+      <a class="content" href="#" [routerLink]="'test'" [routerLinkActive]="'active'">test</a>
+      <a class="content" href="#" [routerLink]="'404'" [routerLinkActive]="'active'">404</a>
+    </div>
   </header>
   <main class="main">
     <router-outlet></router-outlet>
   </main>
   <footer class="footer">
-    Я футер
+    <div style="flex: 1 1 auto"><a href="https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy/downloads.html">Statistical Review of World Energy</a></div>
+    <div style="flex: 1 1 auto"> This site created by Victor Zimin</div>
   </footer>
 </div>

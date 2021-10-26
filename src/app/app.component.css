@@ -4,11 +4,46 @@
   flex-direction: column;
 }
 
+.a-home{
+  padding: 20px;
+}
+
+.icon-home{
+  width: 40px;
+  height: 40px;
+  background-color: antiquewhite;
+  -webkit-mask: url('../assets/icons/home-svgrepo-com.svg') no-repeat center;
+}
 
 .header {
+  display: flex;
   background-color: #1976d2;
-  padding: 30px;
-  text-align: center;
+  height: 80px;
+  align-content: center;
+}
+
+.header_content {
+  display: flex;
+  align-content: center;
+  align-items: stretch;
+}
+
+.content {
+  padding-top: 18px;
+  font-family: sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 2rem;
+  color: antiquewhite;
+  float: left;
+  width: auto;
+  border: none;
+  display: block;
+  text-decoration: none;
+}
+
+.active {
+  background-color: #71b1f0;
 }
 
 .main {
@@ -18,10 +53,12 @@
 }
 
 .footer {
+  display: flex;
   background-color: darkgray;
   padding: 30px;
   text-align: center;
 }
+
 
 .container {
   display: grid;

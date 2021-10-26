@@ -14,4 +14,11 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     console.log('app init!');
   }
+
+  on_active(): string {
+    if(window.location.pathname === '/'){
+      return ' active';
+    }
+    return '';
+  }
 }
