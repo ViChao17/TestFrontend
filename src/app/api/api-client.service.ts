@@ -18,4 +18,13 @@ export class ApiClientService extends ApiBase {
     this.handleRoute('GET', `/`, callback, errorHandler);
   }
 
+  getCountry(rule: any, filters: any,
+    callback: (items: any) => void,
+    errorHandler: (errorMessage: any) => void = this.defaultErrorHandler
+  ): void {
+    const rule_enc = encodeURI(JSON.stringify(rule));
+    const filters_enc = encodeURI(JSON.stringify(filters));
+    this.handleRoute('GET', `/country/?rule=${rule_enc}&filters=${filters_enc}`, callback, errorHandler);
+  }
+
 }
