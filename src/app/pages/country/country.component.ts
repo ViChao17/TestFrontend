@@ -10,7 +10,7 @@ import {ApiClientService} from "../../api/api-client.service";
 export class CountryComponent implements OnInit {
 
   constructor(private api: ApiClientService) { }
-
+  selected = 'option1';
   updateFlag = false;
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options = {

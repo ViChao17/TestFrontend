@@ -12,6 +12,10 @@ import { RegionsComponent } from './pages/regions/regions.component';
 import { SubregionsComponent } from './pages/subregions/subregions.component';
 import { IntOrgComponent } from './pages/int-org/int-org.component';
 import { CountryComponent } from './pages/country/country.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from "@angular/material/form-field";
+
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
@@ -38,7 +42,10 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    HighchartsChartModule
+    HighchartsChartModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
