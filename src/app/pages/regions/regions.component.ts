@@ -33,8 +33,8 @@ export class RegionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.api.getCountry(
-      {"type": "line", "discrete": true, "x_field": "Year", "y_field": "Value"},
-      {"country": ["United Kingdom"], "year": {"2020": "less_or_equal"}, "var": ["pop"]},
+      {"type": "column", "discrete": true, "x_field": "Year", "y_field": "Value"},
+      {"country": ["United Kingdom"], "year": {"2000": "less_or_equal"}, "var": ["pop"]},
       items => {
         this.chartOptions.series = items;
         this.updateFlag = true;
