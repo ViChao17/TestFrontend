@@ -48,4 +48,11 @@ export class ApiInitDataService {
     return items;
   }
 
+  yearList(): number[]{
+    const items: number[] = [];
+    for (let i = 1965; i < 2021; i++){
+      items.push(i);
+    }
+    return items;
+  }
 }

@@ -14,16 +14,20 @@ export class RegionsComponent implements OnInit {
 
   setChart(): void {
     if(this.selected === 'option1'){
-      alert('1');
+      alert(this.region);
     }
     if(this.selected === 'option2'){
-      alert('2');
+      alert(this.year);
     }
   }
 
   variables: string[] = [];
+  year = '2005';
+  years: number[] = [];
   selected = 'option1';
   criterion = 'wind_twh';
+  region = 'Europe';
+  allRegion: string[] = [];
   updateFlag = false;
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options = {
@@ -53,6 +57,7 @@ export class RegionsComponent implements OnInit {
         this.updateFlag = true;
       });
     this.variables = this.initData.variablesList();
+    this.allRegion = this.initData.regionList();
   }
 
 }

@@ -22,10 +22,10 @@ export class IntOrgComponent implements OnInit {
 
   setChart(): void {
     if(this.selected === 'option1'){
-      alert('1');
+      alert(this.criterion);
     }
     if(this.selected === 'option2'){
-      alert('2');
+      alert(this.year);
     }
   }
 
@@ -37,6 +37,8 @@ export class IntOrgComponent implements OnInit {
   ];
 
   variables: string[] = [];
+  year = '2005';
+  years: number[] = [];
   selected = 'option1';
   criterion = 'wind_twh';
   updateFlag = false;
@@ -68,6 +70,7 @@ export class IntOrgComponent implements OnInit {
         this.updateFlag = true;
       });
     this.variables = this.initData.variablesList();
+    this.years = this.initData.yearList();
   }
 
 }

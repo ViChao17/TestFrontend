@@ -11,8 +11,8 @@
     <div>
       <mat-form-field>
         <mat-label>Выберите страну</mat-label>
-        <mat-select>
-          <mat-option value="" ></mat-option>
+        <mat-select [(value)]="country">
+          <mat-option *ngFor="let c of allCountry" value="{{c}}" >{{c}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -27,8 +27,8 @@
     <div *ngIf="selected === 'option2'">
       <mat-form-field style="padding-left: 2rem">
         <mat-label>Выберите год</mat-label>
-        <mat-select>
-          <mat-option value="" ></mat-option>
+        <mat-select [(value)]="year">
+          <mat-option *ngFor="let y of years" value="{{y}}" >{{y}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
