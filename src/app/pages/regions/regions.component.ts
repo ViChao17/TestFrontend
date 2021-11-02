@@ -11,6 +11,7 @@ export class RegionsComponent implements OnInit {
 
   constructor(private api: ApiClientService) { }
 
+  selected = 'option1';
   updateFlag = false;
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options = {

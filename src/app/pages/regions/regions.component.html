@@ -1,4 +1,45 @@
 <p>regions works!</p>
+
+<div style="display: flex">
+  <mat-form-field>
+    <mat-label>Choose an option</mat-label>
+    <mat-select [(value)]="selected">
+      <mat-option value="option1" >Option 1</mat-option>
+      <mat-option value="option2" >Option 2</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div style="padding-left: 3rem">
+    <div *ngIf="selected === 'option1'">
+      <mat-form-field>
+        <mat-label>Выберите страну</mat-label>
+        <mat-select>
+          <mat-option value="" ></mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field style="padding-left: 2rem">
+        <mat-label>Выберите критерий</mat-label>
+        <mat-select>
+          <mat-option value="" ></mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div *ngIf="selected === 'option2'">
+      <mat-form-field>
+        <mat-label>Выберите страну</mat-label>
+        <mat-select>
+          <mat-option value="" ></mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field style="padding-left: 2rem">
+        <mat-label>Выберите год</mat-label>
+        <mat-select>
+          <mat-option value="" ></mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+
 <highcharts-chart
   [Highcharts]="Highcharts"
   [options]="chartOptions"
