@@ -15,6 +15,8 @@ import { CountryComponent } from './pages/country/country.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {FormsModule} from "@angular/forms";
 
 
 const appRoutes: Routes = [
@@ -38,15 +40,17 @@ const appRoutes: Routes = [
     IntOrgComponent,
     CountryComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    RouterModule.forRoot(appRoutes),
-    HighchartsChartModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatSelectModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        RouterModule.forRoot(appRoutes),
+        HighchartsChartModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatCheckboxModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

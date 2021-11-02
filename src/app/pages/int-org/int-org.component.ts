@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import {ApiClientService} from "../../api/api-client.service";
+import {ThemePalette} from '@angular/material/core';
+
+export interface Task {
+  name: string;
+  completed: boolean;
+  color: ThemePalette;
+  subtasks?: Task[];
+}
 
 @Component({
   selector: 'app-int-org',
@@ -10,6 +18,13 @@ import {ApiClientService} from "../../api/api-client.service";
 export class IntOrgComponent implements OnInit {
 
   constructor(private api: ApiClientService) { }
+
+  organizations: Task[] = [
+    {name: 'CIS', completed: false, color: 'primary'},
+    {name: 'OECD', completed: false, color: 'primary'},
+    {name: 'EU', completed: false, color: 'primary'},
+    {name: 'OPEC', completed: false, color: 'primary'}
+  ];
 
   selected = 'option1';
   updateFlag = false;

@@ -1,6 +1,16 @@
 <p>int-org works!</p>
 
 <div style="display: flex">
+  <div class="check-box-group">
+    <div class="check-box"
+    *ngFor="let task of organizations">
+      <mat-checkbox
+        [(ngModel)]="task.completed"
+        [color]="task.color">
+        {{task.name}}
+      </mat-checkbox>
+    </div>
+  </div>
   <mat-form-field>
     <mat-label>Choose an option</mat-label>
     <mat-select [(value)]="selected">
@@ -10,12 +20,6 @@
   </mat-form-field>
   <div style="padding-left: 3rem">
     <div *ngIf="selected === 'option1'">
-      <mat-form-field>
-        <mat-label>Выберите страну</mat-label>
-        <mat-select>
-          <mat-option value="" ></mat-option>
-        </mat-select>
-      </mat-form-field>
       <mat-form-field style="padding-left: 2rem">
         <mat-label>Выберите критерий</mat-label>
         <mat-select>
@@ -24,12 +28,6 @@
       </mat-form-field>
     </div>
     <div *ngIf="selected === 'option2'">
-      <mat-form-field>
-        <mat-label>Выберите страну</mat-label>
-        <mat-select>
-          <mat-option value="" ></mat-option>
-        </mat-select>
-      </mat-form-field>
       <mat-form-field style="padding-left: 2rem">
         <mat-label>Выберите год</mat-label>
         <mat-select>
