@@ -36,7 +36,9 @@ export class IntOrgComponent implements OnInit {
     {name: 'OPEC', completed: false, color: 'primary'}
   ];
 
+  variables: string[] = [];
   selected = 'option1';
+  criterion = 'wind_twh';
   updateFlag = false;
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options = {
@@ -65,10 +67,7 @@ export class IntOrgComponent implements OnInit {
         this.chartOptions.series = items;
         this.updateFlag = true;
       });
-    console.log(this.initData.countryList());
-    console.log(this.initData.regionList());
-    console.log(this.initData.subregionList());
-    console.log(this.initData.variablesList());
+    this.variables = this.initData.variablesList();
   }
 
 }

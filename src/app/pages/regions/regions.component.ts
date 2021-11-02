@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import {ApiClientService} from "../../api/api-client.service";
+import {ApiInitDataService} from "../../api/api-init-data.service";
 
 @Component({
   selector: 'app-regions',
@@ -9,7 +10,7 @@ import {ApiClientService} from "../../api/api-client.service";
 })
 export class RegionsComponent implements OnInit {
 
-  constructor(private api: ApiClientService) { }
+  constructor(private api: ApiClientService, private initData: ApiInitDataService) { }
 
   setChart(): void {
     if(this.selected === 'option1'){
@@ -20,7 +21,9 @@ export class RegionsComponent implements OnInit {
     }
   }
 
+  variables: string[] = [];
   selected = 'option1';
+  criterion = 'wind_twh';
   updateFlag = false;
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options = {
@@ -49,6 +52,7 @@ export class RegionsComponent implements OnInit {
         this.chartOptions.series = items;
         this.updateFlag = true;
       });
+    this.variables = this.initData.variablesList();
   }
 
 }
