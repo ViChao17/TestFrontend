@@ -11,6 +11,15 @@ export class SubregionsComponent implements OnInit {
 
   constructor(private api: ApiClientService) { }
 
+  setChart(): void {
+    if(this.selected === 'option1'){
+      alert('1');
+    }
+    if(this.selected === 'option2'){
+      alert('2');
+    }
+  }
+
   selected = 'option1';
   updateFlag = false;
   Highcharts: typeof Highcharts = Highcharts;
