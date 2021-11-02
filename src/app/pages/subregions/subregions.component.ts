@@ -58,6 +58,7 @@ export class SubregionsComponent implements OnInit {
       });
     this.variables = this.initData.variablesList();
     this.allSubregion = this.initData.subregionList();
+    this.years = this.initData.yearList();
   }
 
 }

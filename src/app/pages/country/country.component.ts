@@ -14,10 +14,26 @@ export class CountryComponent implements OnInit {
 
   setChart(): void {
     if(this.selected === 'option1'){
-      alert(this.country);
+      this.api.getCountry(
+        {"type": "line", "x_field": "Year"},
+        {"country": [this.country], "year": {"2020": "less_or_equal"}, "var": this.variables},
+        items => {
+          this.chartOptions.series = items;
+          this.chartOptions.title!.text = this.country;
+          this.updateFlag = true;
+        });
     }
     if(this.selected === 'option2'){
-      alert(this.year);
+      const year_info: any = {};
+      year_info[this.year] = "equal";
+      this.api.getCountry(
+        {"type": "column", "x_field": "Var"},
+        {"country": [this.country], "year": year_info},
+        items => {
+          this.chartOptions.series = items;
+          this.chartOptions.title!.text = '';
+          this.updateFlag = true;
+        });
     }
   }
 
@@ -58,6 +74,7 @@ export class CountryComponent implements OnInit {
       });
     this.variables = this.initData.variablesList();
     this.allCountry = this.initData.countryList();
+    this.years = this.initData.yearList();
   }
 
 }

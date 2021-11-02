@@ -58,6 +58,7 @@ export class RegionsComponent implements OnInit {
       });
     this.variables = this.initData.variablesList();
     this.allRegion = this.initData.regionList();
+    this.years = this.initData.yearList();
   }
 
 }
