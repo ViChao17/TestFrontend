@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import {ApiClientService} from "../../api/api-client.service";
 import {ThemePalette} from '@angular/material/core';
+import {ApiInitDataService} from "../../api/api-init-data.service";
 
 export interface Task {
   name: string;
@@ -17,7 +18,7 @@ export interface Task {
 })
 export class IntOrgComponent implements OnInit {
 
-  constructor(private api: ApiClientService) { }
+  constructor(private api: ApiClientService, private initData: ApiInitDataService) { }
 
   setChart(): void {
     if(this.selected === 'option1'){
@@ -64,6 +65,10 @@ export class IntOrgComponent implements OnInit {
         this.chartOptions.series = items;
         this.updateFlag = true;
       });
+    console.log(this.initData.countryList());
+    console.log(this.initData.regionList());
+    console.log(this.initData.subregionList());
+    console.log(this.initData.variablesList());
   }
 
 }

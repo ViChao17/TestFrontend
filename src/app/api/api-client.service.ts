@@ -54,4 +54,19 @@ export class ApiClientService extends ApiBase {
     this.handleRoute('GET', `/subregion/?rule=${rule_enc}&filters=${filters_enc}`, callback, errorHandler);
   }
 
+  getCountryList(callback: (items: any) => void, errorHandler: (errorMessage: any) => void = this.defaultErrorHandler): void {
+    this.handleRoute('GET', `/all_country/`, callback, errorHandler);
+  }
+
+  getRegionList(callback: (items: any) => void, errorHandler: (errorMessage: any) => void = this.defaultErrorHandler): void {
+    this.handleRoute('GET', `/all_region/`, callback, errorHandler);
+  }
+
+  getSubregionList(callback: (items: any) => void, errorHandler: (errorMessage: any) => void = this.defaultErrorHandler): void {
+    this.handleRoute('GET', `/all_subregion/`, callback, errorHandler);
+  }
+
+  getValueList(callback: (items: any) => void, errorHandler: (errorMessage: any) => void = this.defaultErrorHandler): void {
+    this.handleRoute('GET', `/values/`, callback, errorHandler);
+  }
 }
