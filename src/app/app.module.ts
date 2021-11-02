@@ -17,6 +17,7 @@ import { MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {FormsModule} from "@angular/forms";
+import {MatButtonModule} from "@angular/material/button";
 
 
 const appRoutes: Routes = [
@@ -49,7 +50,8 @@ const appRoutes: Routes = [
         MatFormFieldModule,
         MatSelectModule,
         MatCheckboxModule,
-        FormsModule
+        FormsModule,
+        MatButtonModule
     ],
   providers: [],
   bootstrap: [AppComponent]
