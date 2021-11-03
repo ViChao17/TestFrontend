@@ -16,7 +16,7 @@ export class CountryComponent implements OnInit {
     if(this.selected === 'option1'){
       this.api.getCountry(
         {"type": "line", "x_field": "Year"},
-        {"country": [this.country], "year": {"2020": "less_or_equal"}, "var": this.variables},
+        {"country": [this.country], "year": {"2020": "less_or_equal"}, "var": [this.criterion]},
         items => {
           this.chartOptions.series = items;
           this.chartOptions.title!.text = this.country;
@@ -35,6 +35,7 @@ export class CountryComponent implements OnInit {
           this.updateFlag = true;
         });
     }
+    this.updateFlag = false;
   }
 
   variables: string[] = [];
