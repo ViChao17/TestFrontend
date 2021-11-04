@@ -14,7 +14,14 @@ export class RegionsComponent implements OnInit {
 
   setChart(): void {
     if(this.selected === 'option1'){
-      alert(this.region);
+      this.api.getRegions(
+        {"type": "line", "x_field": "Year"},
+        {"region": [this.region], "year": {"2020": "less_or_equal"}, "var": [this.criterion]},
+        items => {
+          this.chartOptions.series = items;
+          this.chartOptions.title!.text = this.region;
+          this.updateFlag = true;
+        });
     }
     if(this.selected === 'option2'){
       alert(this.year);

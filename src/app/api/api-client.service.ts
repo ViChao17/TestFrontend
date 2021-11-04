@@ -41,7 +41,7 @@ export class ApiClientService extends ApiBase {
              errorHandler: (errorMessage: any) => void = this.defaultErrorHandler
   ): void {
     const rule_enc = encodeURI(JSON.stringify(rule));
-    const filters_enc = encodeURI(JSON.stringify(filters));
+    const filters_enc = encodeURIComponent(JSON.stringify(filters));
     this.handleRoute('GET', `/region/?rule=${rule_enc}&filters=${filters_enc}`, callback, errorHandler);
   }
 
@@ -66,7 +66,7 @@ export class ApiClientService extends ApiBase {
     this.handleRoute('GET', `/all_subregion/`, callback, errorHandler);
   }
 
-  getValueList(callback: (items: any) => void, errorHandler: (errorMessage: any) => void = this.defaultErrorHandler): void {
-    this.handleRoute('GET', `/values/`, callback, errorHandler);
+  getVariableList(callback: (items: any) => void, errorHandler: (errorMessage: any) => void = this.defaultErrorHandler): void {
+    this.handleRoute('GET', `/variables/`, callback, errorHandler);
   }
 }

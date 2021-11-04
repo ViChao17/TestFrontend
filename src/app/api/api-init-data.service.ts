@@ -40,7 +40,7 @@ export class ApiInitDataService {
 
   variablesList(): string[]{
     const items: string[] = [];
-    this.api.getValueList((i: string[]) => {
+    this.api.getVariableList((i: string[]) => {
       i.forEach(value => {
         items.push(value);
       });
