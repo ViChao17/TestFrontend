@@ -11,13 +11,6 @@ export class ApiClientService extends ApiBase {
     super();
   }
 
-  getRoot(
-    callback: (items: any) => void,
-    errorHandler: (errorMessage: any) => void = this.defaultErrorHandler
-  ): void {
-    this.handleRoute('GET', `/`, callback, errorHandler);
-  }
-
   getCountry(rule: any, filters: any,
     callback: (items: any) => void,
     errorHandler: (errorMessage: any) => void = this.defaultErrorHandler

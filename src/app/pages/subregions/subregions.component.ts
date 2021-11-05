@@ -14,10 +14,17 @@ export class SubregionsComponent implements OnInit {
 
   setChart(): void {
     if(this.selected === 'option1'){
-      alert(this.subregion);
+      this.api.getSubregions(
+        {"type": "line", "x_field": "Year"},
+        {"subregion": [this.subregion], "year": {"2020": "less_or_equal"}, "var": [this.criterion]},
+        items => {
+          this.chartOptions.series = items;
+          this.chartOptions.title!.text = this.subregion;
+          this.updateFlag = true;
+        });
     }
     if(this.selected === 'option2'){
-      alert(this.year);
+      alert('Второй вариант использования!');
     }
   }
 

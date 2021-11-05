@@ -24,7 +24,7 @@ export class RegionsComponent implements OnInit {
         });
     }
     if(this.selected === 'option2'){
-      alert(this.year);
+      alert('Второй вариант использования!');
     }
   }
 

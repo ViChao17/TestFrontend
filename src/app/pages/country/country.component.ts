@@ -24,6 +24,7 @@ export class CountryComponent implements OnInit {
         });
     }
     if(this.selected === 'option2'){
+      alert('Этот вариант использования работает плохо.');
       const year_info: any = {};
       year_info[this.year] = "equal";
       this.api.getCountry(

@@ -22,10 +22,22 @@ export class IntOrgComponent implements OnInit {
 
   setChart(): void {
     if(this.selected === 'option1'){
-      alert(this.criterion);
+      const orgs: any = {};
+      this.organizations.forEach((value: Task) => {
+        orgs[value.name] = value.completed;
+      });
+      this.api.getIntOrg(
+        {"type": "line", "x_field": "Year"},
+        {"int_org": orgs, "year": {"2020": "less_or_equal"}, "var": [this.criterion]},
+        items => {
+          this.chartOptions.series = items;
+          this.chartOptions.title!.text = 'selected org';
+          this.updateFlag = true;
+        });
+      alert('Работает странно!(скорее всего неправильно)');
     }
     if(this.selected === 'option2'){
-      alert(this.year);
+      alert('Второй вариант использования!');
     }
   }
 
